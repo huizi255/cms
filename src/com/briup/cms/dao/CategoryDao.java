@@ -85,10 +85,32 @@ public class CategoryDao {
 				pstmt.setLong(1, id);
 		        pstmt.executeUpdate();		
 	   		}finally{
-				
+				ConnectionFactory.close(rs, pstmt, conn);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * 通过id修改
+	 * */
+	public void update(Category category){
+		try {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			try{
+				conn = ConnectionFactory.getConn();
+				String sql = "update t_category set name=? where id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1,category.getName());
+				pstmt.setLong(2, category.getId());
+				pstmt.executeUpdate();
+			}finally{
+                ConnectionFactory.close(null, pstmt, conn);				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

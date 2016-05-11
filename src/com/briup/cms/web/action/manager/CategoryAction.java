@@ -38,6 +38,16 @@ public class CategoryAction extends ActionSupport{
 		categoryService.delete(id);
 	}
 	
+	/**
+	 * @author huizi;
+	 * 修改栏目；
+	 * */
+	@Action(value="updCategory")
+	public void updCategory(){
+		Category category = new Category();
+		categoryService.update(category);;
+	}
+	
 	public String getName() {
 		return name;
 	}
