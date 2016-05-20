@@ -38,6 +38,7 @@
 <script>
   $(".upd").off;
   $(".upd").on("click",function(){
+	 
 	  var id = $(this).attr("val");
 	  $.post("updCategory.action",{id:id},function(){
 			$(".baseUI li:contains('栏目管理')").trigger("click");
@@ -47,10 +48,12 @@
   
   $(".del").off;
   $(".del").on("click",function(){
-	var id = $(this).attr("val");
-	$.post("delCategory.action",{id:id},function(){
-		alert("删除成功")
-		$(".baseUI li:contains('栏目管理')").trigger("click");
-	})
+	  var flag = confirm("确定要删除吗？");
+	  if(flag){
+		  var id = $(this).attr("val");
+			$.post("delCategory.action",{id:id},function(){
+				$(".baseUI li:contains('栏目管理')").trigger("click");
+			});
+	  }
   });
 </script>

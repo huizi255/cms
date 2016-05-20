@@ -32,7 +32,7 @@ $(function(){
     	<div class="top">
         	<div class="t_logo"></div>
             <div class="t_sign">
-            	<span>你好，管理员</span><a href="#" class="t_exit">退出</a>
+            	<span>你好，管理员</span><a href="Index.action" class="t_exit">退出</a>
             </div>
         </div>
     </div>

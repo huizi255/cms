@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.struts2.convention.annotation.Result;
-
 import com.briup.cms.bean.Category;
 import com.briup.cms.common.ConnectionFactory;
 
@@ -56,9 +54,9 @@ public class CategoryDao {
 					Long id = rs.getLong("id");
 					String name = rs.getString("name");
 					String code = rs.getString("code");
-					Category c = new Category(name, code);
-					c.setId(id);
-					list.add(c);
+					Category category = new Category(name, code);
+					category.setId(id);
+					list.add(category);
 				}
 			}finally{
 				ConnectionFactory.close(rs, pstmt, conn);

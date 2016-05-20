@@ -32,6 +32,10 @@ public class BaseAction extends ActionSupport {
 	}
 	
 	/**
+	 * 后台跳转前台
+	 * */
+	
+	/**
 	 * 跳转到列表页
 	 * */
 	@Action(value="toList",results={

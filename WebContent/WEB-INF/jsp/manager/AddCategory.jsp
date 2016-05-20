@@ -3,10 +3,11 @@
     <!-- -------这是jquery.form的异步提交-------- -->
 <script>
 $(function(){
-	$("#addCategoryForm").off();
-	  $("#addCategoryForm").on("submit",function(){
-		 $("#addCategoryForm").ajaxSubmit(function(){
-			 $("#addCategoryForm input").not(":submit").val("");
+	var form = $("#addCategoryForm");
+	form.off();
+	  form.on("submit",function(){
+		 form.ajaxSubmit(function(){
+			 form[0].reset();
 			 alert("添加成功")
 		 });
 		 return false;
