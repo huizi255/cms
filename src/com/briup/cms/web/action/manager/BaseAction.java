@@ -7,10 +7,13 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.briup.cms.bean.Article;
 import com.briup.cms.bean.Category;
+import com.briup.cms.bean.Fruit;
 import com.briup.cms.service.IArticleService;
 import com.briup.cms.service.ICategoryService;
+import com.briup.cms.service.IFruitService;
 import com.briup.cms.service.impl.ArticleServiceImpl;
 import com.briup.cms.service.impl.CategoryServiceImpl;
+import com.briup.cms.service.impl.FruitServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport {
@@ -20,8 +23,10 @@ public class BaseAction extends ActionSupport {
 			                  new CategoryServiceImpl();
 	private IArticleService articleService = 
 			        new ArticleServiceImpl();
+	private IFruitService fruitService = new FruitServiceImpl();
 	private List<Category> categoryList;
 	private List<Article> articleList;
+	private List<Fruit> fruitList;
 
 	/**
 	 * author:辉子 后台页面跳转 * ip:port/命名空间/url
@@ -80,7 +85,24 @@ public class BaseAction extends ActionSupport {
 	public String toAddStudent() {
 		return "success";
 	}
-
+	/**
+	 * 跳转添加水果界面
+	 * */
+	@Action(value = "toAddFruit", results = { 
+			@Result(name = "success", location = "/WEB-INF/jsp/manager/AddFruit.jsp") })
+	public String toAddFruit() {
+		return "success";
+	}
+	/**
+	 *跳转到水果管理界面 
+	 * */
+		@Action(value = "toFruitManager", results = { 
+				@Result(name = "success", location = "/WEB-INF/jsp/manager/FruitManager.jsp") })
+		public String toFruitManager() {
+			fruitList = fruitService.list();
+			return "success";
+		}
+		
 	public List<Category> getCategoryList() {
 		return categoryList;
 	}
@@ -97,6 +119,16 @@ public class BaseAction extends ActionSupport {
 
 	public void setArticleList(List<Article> articleList) {
 		this.articleList = articleList;
+	}
+
+
+	public List<Fruit> getFruitList() {
+		return fruitList;
+	}
+
+
+	public void setFruitList(List<Fruit> fruitList) {
+		this.fruitList = fruitList;
 	}
 	
 }

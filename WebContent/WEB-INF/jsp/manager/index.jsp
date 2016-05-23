@@ -55,6 +55,12 @@ $(function(){
                     <li url="toAddStudent.action">
                     <a href="#"><em class="base_sys"></em><span>添加学生</span></a>
                     </li>
+                    <li url="toAddFruit.action">
+                    <a href="#"><em class="base_sys"></em><span>添加水果</span></a>
+                    </li>
+                    <li url="toFruitManager.action">
+                    <a href="#"><em class="base_sys"></em><span>水果管理</span></a>
+                    </li>
                 </ul>
             </div>
             <!-- -------这是我们的内容区-------- -->>
